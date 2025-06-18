@@ -7,13 +7,13 @@ namespace FirstProj_Dotnet
         static void Main(string[] args)
         {
             CheckEqualOrNot();
-            Console.WriteLine("                                                                          ");
+            Console.WriteLine("");
             CheckPosOrNeg();
-            Console.WriteLine("                                                                          ");
+            Console.WriteLine("");
             Operations(); 
-            Console.WriteLine("                                                                          ");
+            Console.WriteLine("");
             Table();
-            Console.WriteLine("                                                                          ");
+            Console.WriteLine("");
             Console.WriteLine("****Sum of Two Unsimilar Numbers****");
             Console.Write("Enter the first num: ");
             int a = Convert.ToInt32(Console.ReadLine());
