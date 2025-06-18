@@ -1,0 +1,7 @@
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\bin\Debug\FirstProj_Dotnet.exe.config
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\bin\Debug\FirstProj_Dotnet.exe
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\bin\Debug\FirstProj_Dotnet.pdb
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\obj\Debug\FirstProj_Dotnet.csproj.AssemblyReference.cache
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\obj\Debug\FirstProj_Dotnet.csproj.CoreCompileInputs.cache
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\obj\Debug\FirstProj_Dotnet.exe
+C:\mehr\Handson\FirstProj_Dotnet\FirstProj_Dotnet\obj\Debug\FirstProj_Dotnet.pdb
