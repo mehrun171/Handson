@@ -10,7 +10,7 @@ namespace FirstProj_Dotnet
             Console.WriteLine("");
             CheckPosOrNeg();
             Console.WriteLine("");
-            Operations(); 
+            Operations();
             Console.WriteLine("");
             Table();
             Console.WriteLine("");
@@ -108,6 +108,11 @@ namespace FirstProj_Dotnet
             return a + b;
         }
 
+
+    }
+
+    class Practice
+    {
 
     }
 }
