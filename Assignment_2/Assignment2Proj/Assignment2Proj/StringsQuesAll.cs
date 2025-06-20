@@ -1,23 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Assignment2Proj
 {
-    class StringsQuesAll
+    public class StringsQuesAll
     {
-        /*static void Main()
-        {
-            LengthOfWord();
-            ReverseWord();
-            CompareStrings();
-        }*/
+        
         public static void LengthOfWord()
         {
             Console.WriteLine("Enter a string");
             string str = Console.ReadLine();
+            
             Console.WriteLine($"Length of the String is :{str.Length}");
             Console.ReadLine();
 

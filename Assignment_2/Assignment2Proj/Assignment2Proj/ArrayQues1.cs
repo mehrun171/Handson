@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Assignment2Proj
 {
@@ -13,6 +10,11 @@ namespace Assignment2Proj
             Console.WriteLine("Enter the number of elements:");
             int n = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[n];
+            if (n <= 0)
+            {
+                Console.WriteLine("error");
+                return;
+            }
             Console.WriteLine("Enter elements in the array");
             for(int i = 0; i < n; i++)
             {

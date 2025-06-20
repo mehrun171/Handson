@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5DFE807E-FF4F-409C-A91E-5AD2E70F9AEE}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Assignment2Proj</RootNamespace>
     <AssemblyName>Assignment2Proj</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
