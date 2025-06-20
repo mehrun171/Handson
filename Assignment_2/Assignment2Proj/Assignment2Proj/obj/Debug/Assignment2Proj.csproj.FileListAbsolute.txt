@@ -1,0 +1,7 @@
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\bin\Debug\Assignment2Proj.exe.config
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\bin\Debug\Assignment2Proj.exe
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\bin\Debug\Assignment2Proj.pdb
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\obj\Debug\Assignment2Proj.csproj.CoreCompileInputs.cache
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\obj\Debug\Assignment2Proj.exe
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\obj\Debug\Assignment2Proj.pdb
+C:\mehr\Handson\Assignment_2\Assignment2Proj\Assignment2Proj\obj\Debug\Assignment2Proj.csproj.AssemblyReference.cache
