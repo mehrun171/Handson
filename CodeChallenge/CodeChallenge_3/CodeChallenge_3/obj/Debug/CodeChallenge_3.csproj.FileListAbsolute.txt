@@ -1,0 +1,7 @@
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\bin\Debug\CodeChallenge_3.exe.config
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\bin\Debug\CodeChallenge_3.exe
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\bin\Debug\CodeChallenge_3.pdb
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\obj\Debug\CodeChallenge_3.csproj.AssemblyReference.cache
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\obj\Debug\CodeChallenge_3.csproj.CoreCompileInputs.cache
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\obj\Debug\CodeChallenge_3.exe
+C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_3\CodeChallenge_3\obj\Debug\CodeChallenge_3.pdb
