@@ -5,3 +5,10 @@ C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_4\CodeChallenge_4\obj\Debu
 C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.csproj.CoreCompileInputs.cache
 C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.exe
 C:\mehr\Infinite_Hands_on\CodeChallenge\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.pdb
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\bin\Debug\CodeChallenge_4.exe.config
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\bin\Debug\CodeChallenge_4.exe
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\bin\Debug\CodeChallenge_4.pdb
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.csproj.AssemblyReference.cache
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.csproj.CoreCompileInputs.cache
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.exe
+C:\mehr\Infinite_Hands_on\SQL\SQLCC1\CodeChallenge_4\CodeChallenge_4\obj\Debug\CodeChallenge_4.pdb
