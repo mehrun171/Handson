@@ -1,0 +1,7 @@
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\bin\Debug\Linq_Assignment.exe.config
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\bin\Debug\Linq_Assignment.exe
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\bin\Debug\Linq_Assignment.pdb
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\obj\Debug\Linq_Assignment.csproj.AssemblyReference.cache
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\obj\Debug\Linq_Assignment.csproj.CoreCompileInputs.cache
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\obj\Debug\Linq_Assignment.exe
+C:\mehr\Infinite_Hands_on\ADO\Linq_Assignment\Linq_Assignment\obj\Debug\Linq_Assignment.pdb
