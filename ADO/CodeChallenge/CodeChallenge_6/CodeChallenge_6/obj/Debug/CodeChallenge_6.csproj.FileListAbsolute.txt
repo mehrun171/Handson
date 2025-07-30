@@ -1,0 +1,6 @@
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\obj\Debug\CodeChallenge_6.csproj.CoreCompileInputs.cache
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\bin\Debug\CodeChallenge_6.exe.config
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\bin\Debug\CodeChallenge_6.exe
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\bin\Debug\CodeChallenge_6.pdb
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\obj\Debug\CodeChallenge_6.exe
+C:\mehr\Infinite_Hands_on\ADO\CodeChallenge\CodeChallenge_6\CodeChallenge_6\obj\Debug\CodeChallenge_6.pdb
