@@ -1,0 +1,7 @@
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\bin\Debug\WebApplications.exe.config
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\bin\Debug\WebApplications.exe
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\bin\Debug\WebApplications.pdb
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\obj\Debug\WebApplications.csproj.AssemblyReference.cache
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\obj\Debug\WebApplications.csproj.CoreCompileInputs.cache
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\obj\Debug\WebApplications.exe
+C:\mehr\PracticeApp\Web\WebApplications\WebApplications\obj\Debug\WebApplications.pdb

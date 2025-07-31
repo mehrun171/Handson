@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+
+<!--1. Create the largest heading with the text 'Welcome'.
+
+2. Create second highest heading with the text 'About Us'.
+
+3. Make third highest heading with the text 'Welcome To HTML' aligned to the center.
+
+4. Create a heading with the text 'Services' and set its text color to '#0066cc'.
+
+5. Create a heading with underline 'Important' and a font color of '#ff0000'.
+
+6. Create a text input field for the user's name.
+
+7. Make a password input field with a placeholder 'Enter your password'.
+
+8. Create a checkbox input for 'I Agree' with an associated label.
+
+9. Embed an audio file with the source 'music.mp3' and set controls for playback.
+
+10. Make an unordered list with two items: 'Red', 'Blue'.-->
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> HTML Hands_On</title>
+    <style>
+        h4{
+            color:#0066cc;
+        }
+        h5{
+            color:#ff0000;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME!!</h1>
+    <h2>About US</h2>
+    <h3 style="text-align:center;">Welcome To HTML</h3>
+    <h4>Services</h4>
+    <h5>Important</h5>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"
+           placeholder="Enter your password" />
+    <br>
+
+    <input type="checkbox" id="agree" name="agree">
+    <label for="agree">I Agree</label>
+    <br>
+
+    <audio controls>
+        <source src="music.mp3" type="audio/mp3" />
+    </audio>
+    <br>
+
+    <ul>
+        <li>Red</li>
+        <li>Blue</li>
+    </ul>
+
+</body>
+</html>
