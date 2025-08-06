@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Odd or Even Numbers</title>
+</head>
+<body>
+    <h2>0 to 15 Odd or Even Numbers!!</h2>
+    <button onclick="start()">Start</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function start() {
+            const resultDiv = document.getElementById("result");
+
+            for (let i = 0; i <= 15; i++) {
+                if (i % 2 === 0) {
+
+                    //document.write(`${i} is Even`);
+                    resultDiv.innerHTML += `${i} is Even<br>`;
+                } else {
+
+                    //document.write(`${i} is Odd`);
+                    resultDiv.innerHTML  += `${i} is Odd<br>`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Style h1 in div</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <style> 
+   *{
+       margin:10px;
+       padding:10px;
+
+   }
+    </style>
+</head>
+    <body>
+        <div>
+            <h1>Heading 1 in Div Element(H1)</h1>
+            <h1>Heading 2 in Div Element(H1)</h1>
+            <h2>Heading 3 in Div Element(H2)</h2>
+        </div>
+        <section>
+            <h1>Heading in Section</h1>
+        </section>
+
+        <script>
+            $("div").children("h1").css("background-color", "yellow");
+        </script>
+    </body>
+</html>

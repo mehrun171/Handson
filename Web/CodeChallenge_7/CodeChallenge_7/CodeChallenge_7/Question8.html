@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Question-8</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+    <input type="text" placeholder="Type here" />
+    <p><b>Your changes will be shown below:</b></p>
+    <script>
+        $(function () {
+            $("input").on("change", function () {
+                var text_message = $("<p>").text("You changed the input to: " + $(this).val());
+                console.log(text_message.text());
+                $("body").append(text_message);
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+   
+ 

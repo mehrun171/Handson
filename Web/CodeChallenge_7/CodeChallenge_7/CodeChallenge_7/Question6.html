@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Question-6 </title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+    <h2> To get a single element from a selection</h2>
+</head>
+<body>
+    <ul>
+        <li>CSHARP</li>
+        <li>SQL</li>
+        <li>ADO</li>
+    </ul>
+
+    <script>
+        $(function () {
+            var choosenelement = document.querySelectorAll("li")[0]; 
+
+            $(choosenelement).css({
+                "color": "red",
+            });
+
+            console.log("Selected item:", $(choosenelement).text());
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+    
