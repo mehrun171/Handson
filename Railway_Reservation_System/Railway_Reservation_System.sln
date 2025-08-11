@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36128.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railway_Reservation_System", "Railway_Reservation_System\Railway_Reservation_System.csproj", "{75F63DB3-DF5C-451C-86B8-C7811995CE27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railway_Reservation_System.Tests", "Railway_Reservation_System.Tests\Railway_Reservation_System.Tests.csproj", "{7CB551D6-6AC0-493A-9C70-CC6828691835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75F63DB3-DF5C-451C-86B8-C7811995CE27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F63DB3-DF5C-451C-86B8-C7811995CE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F63DB3-DF5C-451C-86B8-C7811995CE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F63DB3-DF5C-451C-86B8-C7811995CE27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CB551D6-6AC0-493A-9C70-CC6828691835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB551D6-6AC0-493A-9C70-CC6828691835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB551D6-6AC0-493A-9C70-CC6828691835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB551D6-6AC0-493A-9C70-CC6828691835}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {118CD709-5D64-413B-BD38-347CB86A28AE}
+	EndGlobalSection
+EndGlobal
