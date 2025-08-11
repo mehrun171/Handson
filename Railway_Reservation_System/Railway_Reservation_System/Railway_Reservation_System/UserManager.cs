@@ -21,22 +21,28 @@ namespace Railway_Reservation_System
             Console.Write("Enter Email ID: ");
             string email = Console.ReadLine();
 
+            Console.Write("Enter UserName: ");
+            string username = Console.ReadLine();
+
+            Console.Write("Enter Password: ");
+            string password = Console.ReadLine();
+
             using (SqlConnection con = DBConnection.GetConnection())
             {
                 string query = @"
-                INSERT INTO Customers (CustName, Phone, MailId)
-                VALUES (@name, @phone, @mail)";
+                INSERT INTO Customers (CustName, Phone, MailId,Username,Password)
+                VALUES (@name, @phone, @email,@username,@password)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@phone", phone);
-                cmd.Parameters.AddWithValue("@mail", email);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                object result = cmd.ExecuteScalar();
-                int custId = Convert.ToInt32(result);
-                Console.WriteLine($"Customer registered successfully with CustID ->{custId}");
+                Console.WriteLine($"Customer registered successfully");
             }
         }
     }

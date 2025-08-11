@@ -58,6 +58,26 @@ namespace Railway_Reservation_System
             }
         }
 
+        public static void ReactivateTrain()
+        {
+            Console.Write("Enter Train Number to Re-activate: ");
+            int trainNo = int.Parse(Console.ReadLine());
+
+            using (SqlConnection conn = DBConnection.GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE Trains SET IsActive = 1 WHERE TrainNo = @trainNo";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@trainNo", trainNo);
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                    Console.WriteLine("Train reactivated successfully.");
+                else
+                    Console.WriteLine("Train not found or already active.");
+            }
+        }
+
         public static void ViewAllBookings()
         {
             using (SqlConnection conn = DBConnection.GetConnection())
@@ -78,7 +98,7 @@ namespace Railway_Reservation_System
                 while (dr.Read())
                 {
                     Console.WriteLine($"BookingID: {dr["BookingId"]}, Customer: {dr["CustName"]}, Phone: {dr["Phone"]}");
-                    Console.WriteLine($"Train: {dr["TrainName"]} ({dr["Source"]} → {dr["Destination"]}), Date: {dr["TravelDate"]}");
+                    Console.WriteLine($"Train: {dr["TrainName"]} ({dr["Source"]} -> {dr["Destination"]}), Date: {dr["TravelDate"]}");
                     Console.WriteLine($"Class: {dr["Class"]}, Berth: {dr["BerthAllotment"]}, Cost: {dr["TotalCost"]}");
                 }
             }

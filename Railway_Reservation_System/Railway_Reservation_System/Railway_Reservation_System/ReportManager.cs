@@ -25,7 +25,7 @@ namespace Railway_Reservation_System
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
-                Console.WriteLine("Active Bookings:");
+                Console.WriteLine("ALL Bookings:");
                 while (dr.Read())
                 {
                     Console.WriteLine($"Booking ID: {dr["BookingId"]}, Customer: {dr["CustName"]}, " +

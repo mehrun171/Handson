@@ -17,8 +17,9 @@ namespace Railway_Reservation_System
                 Console.WriteLine();
                 Console.WriteLine("1. Add Train");
                 Console.WriteLine("2. Delete Train");
-                Console.WriteLine("3. View All Bookings");
-                Console.WriteLine("4. Logout");
+                Console.WriteLine("3. Reactivate Train");
+                Console.WriteLine("4. View All Bookings");
+                Console.WriteLine("5. Logout");
 
                 Console.Write("Choose an option: ");
                 string choice = Console.ReadLine();
@@ -32,9 +33,12 @@ namespace Railway_Reservation_System
                         AdminServices.DeleteTrain();
                         break;
                     case "3":
-                        AdminServices.ViewAllBookings();
+                        AdminServices.ReactivateTrain();
                         break;
                     case "4":
+                        AdminServices.ViewAllBookings();
+                        break;
+                    case "5":
                         return;
                     default:
                         Console.WriteLine("Invalid option. Try again.");
