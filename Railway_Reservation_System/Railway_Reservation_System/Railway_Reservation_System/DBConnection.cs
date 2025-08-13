@@ -11,7 +11,7 @@ namespace Railway_Reservation_System
 {
     public static class DBConnection
     {
-        static readonly string connectionString = "Data Source=ICS-LT-4FFZC64\\SQLEXPRESS;Initial Catalog=RailwayReservationSystem;" +
+        static string connectionString = "Data Source=ICS-LT-4FFZC64\\SQLEXPRESS;Initial Catalog=RailwayReservationSystem;" +
                 "User ID=sa;Password=Mehrunshamshi@77;";
 
         public static SqlConnection GetConnection()

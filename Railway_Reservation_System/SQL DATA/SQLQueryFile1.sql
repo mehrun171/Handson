@@ -115,3 +115,4 @@ select * from Customers
 select * from Trains
 select * from Reservations
 select * from Cancellations
+select * from TrainClasses

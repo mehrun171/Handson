@@ -8,9 +8,34 @@ using System.Data.SqlClient;
 
 namespace Railway_Reservation_System
 {
+    public class User
+    {
+        public string Username;
+        public string Password;
+
+        public bool Login(string username, string password)
+        {
+            return Username == username && Password == password;
+        }
+
+        public virtual string GetRole()
+        {
+            return "User";
+        }
+    }
+
+    public class Admin : User
+    {
+        public override string GetRole()
+        {
+            return "Admin";
+        }
+    }
     public static class AuthUser
 
     {
+        
+
         public static string Authenticate(string username, string password, string role)
         {
             using (SqlConnection con = DBConnection.GetConnection())
@@ -30,7 +55,31 @@ namespace Railway_Reservation_System
                 var result = cmd.ExecuteScalar();
                 return result?.ToString();
             }
+
         }
+        public static int GetCustomerId(string username)
+        {
+            using (SqlConnection con = DBConnection.GetConnection())
+            {
+                string query = "SELECT CustId FROM Customers WHERE Username = @username AND IsDeleted = 0";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                con.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    throw new Exception("Customer not found or account is inactive.");
+                }
+            }
+        }
+
 
 
     }

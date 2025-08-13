@@ -1,70 +1,54 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using NUnit.Framework;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+﻿using NUnit.Framework;
+using NUnit.Framework.Legacy;
+using Railway_Reservation_System;
 
 namespace Railway_Reservation_System.Tests
 {
-    public class User
-    {
-        public string Username;
-        public string Password;
 
-        public bool Login(string username, string password)
-        {
-            return Username == username && Password == password;
-        }
-
-        public virtual string GetRole()
-        {
-            return "User";
-        }
-    }
-
-    public class Admin : User
-    {
-        public override string GetRole()
-        {
-            return "Admin";
-        }
-    }
-
-[TestFixture]
+    [TestFixture]
     public class UserAdminTests
     {
-        private User user;
-        private Admin admin;
-
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void IsValidAdmin()
         {
-            user = new User { Username = "shams@123", Password = "mypwd" };
-            admin = new Admin { Username = "Admin1", Password = "rrs@123" };
+            string username="Admin1";
+            string password = "rrs@123";
+            string role = "Admin";
+            string role1 = AuthUser.Authenticate(username, password, role);
+            ClassicAssert.AreEqual("Admin", role1);
         }
 
         [Test]
-        public void UserLogin_ShouldSucceed()
+        public void IsValidUser()
         {
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(user.Login("shams@123", "mypwd"));
+            string username = "shams@123";
+            string password = "mypwd";
+            string role = "User";
+            string result = AuthUser.Authenticate(username, password, role);
+            ClassicAssert.AreEqual("User", result);
         }
 
         [Test]
-        public void AdminLogin_ShouldSucceed()
+        public void InvalidPassword_ShouldFail()
         {
-            Assert.IsTrue(admin.Login("Admin1", "rrs@123"));
+            string username = "shams@123";
+            string password = "wrongpwd";
+            string role = "User";
+            string result = AuthUser.Authenticate(username, password, role);
+            ClassicAssert.AreNotEqual("User", result);
         }
 
         [Test]
-        public void UserRole_ShouldBeUser()
+        public void InvalidRole_ShouldFail()
         {
-            Assert.AreEqual("User", user.GetRole());
+            string username = "Admin1";
+            string password = "rrs@123";
+            string role = "Guest"; 
+            string result = AuthUser.Authenticate(username, password, role);
+            ClassicAssert.AreNotEqual("Admin", result);
         }
 
-        [Test]
-        public void AdminRole_ShouldBeAdmin()
-        {
-            Assert.AreEqual("Admin", admin.GetRole());
-        }
+
     }
 
 }

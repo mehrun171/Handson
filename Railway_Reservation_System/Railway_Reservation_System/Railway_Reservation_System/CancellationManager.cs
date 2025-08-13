@@ -55,7 +55,7 @@ namespace Railway_Reservation_System
                             };
 
                             bookings.Add(booking);
-                            Console.WriteLine($"Booking ID: {booking.BookingId}, Train No: {booking.TrainNo}, Class: {booking.Class}, Date: {booking.TravelDate:dd-MM-YYYY}, Fare: {booking.Cost}");
+                            Console.WriteLine($"Booking ID: {booking.BookingId}, Train No: {booking.TrainNo}, Class: {booking.Class}, Date: {booking.TravelDate:dd-MM-yyyy}, Fare: {booking.Cost}");
                         }
 
                         if (bookings.Count == 0)

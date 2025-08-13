@@ -11,7 +11,7 @@ namespace Railway_Reservation_System
 {
     public class ReportManager
     {
-        public void ViewBookings()
+        public static void ViewBookings()
         {
             using (SqlConnection con = DBConnection.GetConnection())
             {
@@ -35,8 +35,39 @@ namespace Railway_Reservation_System
                 }
             }
         }
+        public static void ViewMyBookings(int custId)
+        {
+            using (SqlConnection con = DBConnection.GetConnection())
+            {
+                string query = @"
+        SELECT r.BookingId, c.CustName, r.TrainNo, r.Class, r.TravelDate, r.TotalCost
+        FROM Reservations r
+        JOIN Customers c ON r.CustId = c.CustId
+        WHERE r.IsDeleted = 0 AND r.CustId = @custId";
 
-        public void ViewCancellations()
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@custId", custId);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                bool hasbookings = false;
+                Console.WriteLine($"Bookings for Customer ID: {custId}");
+                while (dr.Read())
+                {
+                    hasbookings = true;
+                    Console.WriteLine($"Booking ID: {dr["BookingId"]}, Customer: {dr["CustName"]}, " +
+                                      $"Train No: {dr["TrainNo"]}, Class: {dr["Class"]}, " +
+                                      $"Date: {Convert.ToDateTime(dr["TravelDate"]).ToShortDateString()}, " +
+                                      $"Cost: {dr["TotalCost"]}");
+                }
+                if (!hasbookings)
+                {
+                    Console.WriteLine("No Bookings found for this customer.");
+                }
+            }
+        }
+
+        public static void ViewCancellations()
         {
             using (SqlConnection con = DBConnection.GetConnection())
             {
@@ -57,6 +88,55 @@ namespace Railway_Reservation_System
                 }
             }
         }
+
+        public static void ViewMyCancellations(int custId)
+        {
+            using (SqlConnection con = DBConnection.GetConnection())
+            {
+                string query = @"
+        SELECT 
+            c.CancelId,
+            c.BookingId,
+            c.RefundAmount,
+            c.CancellationDate,
+            r.TravelDate,
+            r.Class,
+            t.TrainName,
+            t.Source,
+            t.Destination,
+            cu.CustName
+        FROM Cancellations c
+        JOIN Reservations r ON c.BookingId = r.BookingId
+        JOIN Trains t ON r.TrainNo = t.TrainNo
+        JOIN Customers cu ON r.CustId = cu.CustId
+        WHERE r.CustId = @custId AND r.IsDeleted = 1";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@custId", custId);
+
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                bool hasCancellations = false;
+                Console.WriteLine($"Cancelled Bookings for Customer ID: {custId}");
+                while (dr.Read())
+                {
+                    hasCancellations = true;
+                    Console.WriteLine($"Cancel ID: {dr["CancelId"]}, Booking ID: {dr["BookingId"]}, " +
+                                      $"Customer: {dr["CustName"]}, Train: {dr["TrainName"]}, " +
+                                      $"Route: {dr["Source"]} to {dr["Destination"]}, Class: {dr["Class"]}, " +
+                                      $"Travel Date: {Convert.ToDateTime(dr["TravelDate"]).ToShortDateString()}, " +
+                                      $"Refund: {dr["RefundAmount"]}, " +
+                                      $"Cancelled On: {Convert.ToDateTime(dr["CancellationDate"]).ToShortDateString()}");
+                }
+                if (!hasCancellations)
+                {
+                    Console.WriteLine("No cancellations found for this customer.");
+                }
+            }
+        }
+
+
+
         public void PrintTicket()
         {
             Console.Write("Enter Customer ID to print tickets: ");
@@ -83,6 +163,7 @@ namespace Railway_Reservation_System
                     while (dr.Read())
                     {
                         Console.WriteLine("======= TICKET DETAILS =======");
+                        Console.WriteLine();
                         Console.WriteLine($"Booking ID     : {dr["BookingId"]}");
                         Console.WriteLine($"Customer Name  : {dr["CustName"]}");
                         Console.WriteLine($"Phone          : {dr["Phone"]}");
@@ -96,11 +177,13 @@ namespace Railway_Reservation_System
                         Console.WriteLine($"Booking Date   : {Convert.ToDateTime(dr["BookingDate"])}");
                         Console.WriteLine($"Total Fare     : {dr["TotalCost"]}");
                         Console.WriteLine("===================================");
+                        Console.WriteLine();
+
                     }
                 }
                 else
                 {
-                    Console.WriteLine("No tickets found for this customer.");
+                    Console.WriteLine("No tickets found for this customer");
                 }
             }
         }

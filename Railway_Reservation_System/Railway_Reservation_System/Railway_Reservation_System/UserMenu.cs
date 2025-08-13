@@ -8,7 +8,7 @@ namespace Railway_Reservation_System
 {
     public static class UserMenu
     {
-        public static void Show()
+        public static void Show(string username)
         {
             var userManager = new UserManager();
             var trainManager = new TrainManager();
@@ -25,8 +25,8 @@ namespace Railway_Reservation_System
                 Console.WriteLine("2. Book Ticket");//working
                 Console.WriteLine("3. Cancel Ticket");//working
                 Console.WriteLine("4. View Available Trains");//working
-                Console.WriteLine("5. View Bookings");//working
-                Console.WriteLine("6. View Cancellations");//working
+                Console.WriteLine("5. View My Bookings");//working
+                Console.WriteLine("6. View My Cancellations");//working
                 Console.WriteLine("7. Print Ticket");//working
                 Console.WriteLine("8. Exit");
                 //add nunit aslo//
@@ -51,9 +51,13 @@ namespace Railway_Reservation_System
                         break;
                     case 4: trainManager.ViewAvailableTrains(); 
                         break;
-                    case 5: reportManager.ViewBookings(); 
+                    case 5:
+                        int custId2 = AuthUser.GetCustomerId(username); 
+                        ReportManager.ViewMyBookings(custId2);
                         break;
-                    case 6: reportManager.ViewCancellations(); 
+                    case 6:
+                        int custId3 = AuthUser.GetCustomerId(username);
+                        ReportManager.ViewMyCancellations(custId3);
                         break;
                     case 7: reportManager.PrintTicket(); 
                         break;
