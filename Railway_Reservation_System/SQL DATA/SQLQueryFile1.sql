@@ -116,3 +116,9 @@ select * from Trains
 select * from Reservations
 select * from Cancellations
 select * from TrainClasses
+
+SELECT * 
+FROM Cancellations c
+JOIN Reservations r ON c.BookingId = r.BookingId
+WHERE r.CustId = 14 AND r.IsDeleted = 1
+

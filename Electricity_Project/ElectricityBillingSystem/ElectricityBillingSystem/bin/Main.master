@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ElectricityBillingSystem.Site" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Electricity Billing System</title>
+</head>
+    <style>
+        .navbar {
+    background-color: #111;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #333;
+}
+
+.navbar a {
+    color: #00ffcc;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+    </style>
+<body class="dark-bg">
+    <form id="form1" runat="server">
+        <div class="header">
+            <h1>⚡ Electricity Billing System</h1>
+        </div>
+
+        <div class="navbar">
+            <asp:HyperLink ID="hlAddBill" runat="server" NavigateUrl="~/AddBill.aspx">Add Bill</asp:HyperLink>
+            <asp:HyperLink ID="hlCalculate" runat="server" NavigateUrl="~/CalculateBill.aspx">Calculate Bill</asp:HyperLink>
+            <asp:HyperLink ID="hlRetrieve" runat="server" NavigateUrl="~/ViewBills.aspx">Retrieve Bills</asp:HyperLink>
+            <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
+        </div>
+
+        <div class="card-container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </form>
+</body>
+</html>
