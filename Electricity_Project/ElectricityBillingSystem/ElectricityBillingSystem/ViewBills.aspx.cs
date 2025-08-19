@@ -28,8 +28,10 @@ namespace ElectricityBillingSystem
             string connectionString = connSetting.ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"SELECT TOP (@Count) consumer_number, consumer_name, units_consumed, bill_amount 
-                 FROM ElectricityBill";
+                string query = @"SELECT TOP (@Count) consumer_number, consumer_name, units_consumed, bill_amount
+FROM ElectricityBill
+ORDER BY bill_id DESC
+";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {

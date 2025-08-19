@@ -17,3 +17,6 @@ INSERT INTO AdminLogin (username, password)
 VALUES ('admin', 'admin123')
 
 select * from ElectricityBill
+
+ALTER TABLE ElectricityBill
+ADD bill_id INT IDENTITY(1,1)

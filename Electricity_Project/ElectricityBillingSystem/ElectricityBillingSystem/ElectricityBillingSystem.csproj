@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddBill.aspx" />
+    <Content Include="CalculateBill.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ViewBills.aspx" />
     <Content Include="Web.config" />
@@ -81,6 +82,13 @@
       <DependentUpon>AddBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="BillValidator.cs" />
+    <Compile Include="CalculateBill.aspx.cs">
+      <DependentUpon>CalculateBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalculateBill.aspx.designer.cs">
+      <DependentUpon>CalculateBill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DBHandler.cs" />
     <Compile Include="ElectricityBill.cs" />
     <Compile Include="ElectricityBoard.cs" />

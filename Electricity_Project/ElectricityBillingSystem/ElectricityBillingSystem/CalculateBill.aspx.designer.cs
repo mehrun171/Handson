@@ -11,53 +11,8 @@ namespace ElectricityBillingSystem
 {
 
 
-    public partial class AddBill
+    public partial class CalculateBill
     {
-
-        /// <summary>
-        /// lblBillCountPrompt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBillCountPrompt;
-
-        /// <summary>
-        /// txtBillCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBillCount;
-
-        /// <summary>
-        /// btnStartEntry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStartEntry;
-
-        /// <summary>
-        /// hfCurrentCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfCurrentCount;
-
-        /// <summary>
-        /// pnlBillEntry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlBillEntry;
 
         /// <summary>
         /// lblConsumerNo control.
@@ -195,13 +150,13 @@ namespace ElectricityBillingSystem
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// btnSubmit control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
         /// btnPrint control.

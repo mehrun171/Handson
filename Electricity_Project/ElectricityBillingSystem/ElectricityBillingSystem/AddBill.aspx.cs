@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +10,6 @@ namespace ElectricityBillingSystem
 {
     public partial class AddBill : System.Web.UI.Page
     {
-        ElectricityBill bill = new ElectricityBill();
         ElectricityBoard board = new ElectricityBoard();
         BillValidator validator = new BillValidator();
 
@@ -23,16 +19,38 @@ namespace ElectricityBillingSystem
             {
                 lblMessage.Text = "";
                 lblBillAmount.Text = "";
+                pnlBillEntry.Visible = false;
+                btnSubmit.Enabled = false;
             }
+
             Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
+
+        protected void btnStartEntry_Click(object sender, EventArgs e)
+        {
+            int totalBills;
+            if (!int.TryParse(txtBillCount.Text.Trim(), out totalBills) || totalBills < 1 || totalBills > 100)
+            {
+                lblMessage.Text = "Enter a valid number between 1 and 100.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            ViewState["TotalBills"] = totalBills;
+            hfCurrentCount.Value = "0";
+            pnlBillEntry.Visible = true;
+            btnSubmit.Enabled = true;
+            lblMessage.Text = $"Entering bill 1 of {totalBills}";
+            lblMessage.ForeColor = System.Drawing.Color.Blue;
+        }
+
         protected void btnCalculate_Click(object sender, EventArgs e)
         {
             try
             {
                 ElectricityBill bill = new ElectricityBill();
-                bill.ConsumerNumber = txtConsumerNo.Text.Trim();
-                bill.ConsumerName = txtConsumerName.Text.Trim();
+                bill.ConsumerNumber = txtConsumerNo.Text;
+                bill.ConsumerName = txtConsumerName.Text;
 
                 if (!int.TryParse(txtUnits.Text.Trim(), out int units))
                 {
@@ -70,18 +88,26 @@ namespace ElectricityBillingSystem
             }
         }
 
-        /*protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string consumerNo = txtConsumerNo.Text.Trim();
-            string consumerName = txtConsumerName.Text.Trim();
-            int units = int.Parse(txtUnits.Text.Trim());
+            string consumerNo = txtConsumerNo.Text;
+            string consumerName = txtConsumerName.Text;
+            int units;
 
-            // Safely parse the bill amount
-            string rawAmount = lblBillAmount.Text.Replace("₹", "").Replace(",", "").Trim();
-            decimal amount;
-            if (!decimal.TryParse(rawAmount, out amount))
+            if (!int.TryParse(txtUnits.Text.Trim(), out units))
             {
-                lblMessage.Text = "❌ Invalid bill amount format.";
+                lblMessage.Text = "Invalid units entered.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            string rawText = lblBillAmount.Text;
+            string numericPart = Regex.Match(rawText, @"\d+[\d,]*\.?\d*").Value.Replace(",", "").Replace(" ", "");
+
+            decimal amount;
+            if (!decimal.TryParse(numericPart, NumberStyles.Number, CultureInfo.InvariantCulture, out amount))
+            {
+                lblMessage.Text = $"Could not parse bill amount from: '{rawText}'";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
                 return;
             }
@@ -93,8 +119,8 @@ namespace ElectricityBillingSystem
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     string query = @"INSERT INTO ElectricityBill 
-                             (ConsumerNo, ConsumerName, UnitsConsumed, BillAmount, BillDate) 
-                             VALUES (@ConsumerNo, @ConsumerName, @UnitsConsumed, @BillAmount, @BillDate)";
+                                     (consumer_number, consumer_name, units_consumed, bill_amount) 
+                                     VALUES (@ConsumerNo, @ConsumerName, @UnitsConsumed, @BillAmount)";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -102,20 +128,33 @@ namespace ElectricityBillingSystem
                         cmd.Parameters.AddWithValue("@ConsumerName", consumerName);
                         cmd.Parameters.AddWithValue("@UnitsConsumed", units);
                         cmd.Parameters.AddWithValue("@BillAmount", amount);
-                        cmd.Parameters.AddWithValue("@BillDate", DateTime.Now);
 
                         con.Open();
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
-                            lblMessage.Text = "✅ Bill submitted successfully!";
-                            lblMessage.ForeColor = System.Drawing.Color.Green;
-                            btnSubmit.Enabled = false;
+                            int current = int.Parse(hfCurrentCount.Value);
+                            int total = (int)ViewState["TotalBills"];
+                            current++;
+
+                            if (current < total)
+                            {
+                                hfCurrentCount.Value = current.ToString();
+                                lblMessage.Text = $"Bill {current} submitted. Enter bill {current + 1} of {total}.";
+                                lblMessage.ForeColor = System.Drawing.Color.Green;
+                                ClearForm();
+                            }
+                            else
+                            {
+                                lblMessage.Text = $"All {total} bills submitted successfully!";
+                                lblMessage.ForeColor = System.Drawing.Color.DarkGreen;
+                                pnlBillEntry.Visible = false;
+                            }
                         }
                         else
                         {
-                            lblMessage.Text = "❌ Failed to submit bill.";
+                            lblMessage.Text = "Failed to submit bill.";
                             lblMessage.ForeColor = System.Drawing.Color.Red;
                         }
                     }
@@ -123,80 +162,19 @@ namespace ElectricityBillingSystem
             }
             catch (Exception ex)
             {
-                lblMessage.Text = $"❌ Error: {ex.Message}";
+                lblMessage.Text = $"Error: {ex.Message}";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
-        }*/
-       
-protected void btnSubmit_Click(object sender, EventArgs e)
-    {
-        // Step 1: Gather and validate inputs
-        string consumerNo = txtConsumerNo.Text.Trim();
-        string consumerName = txtConsumerName.Text.Trim();
-        int units;
-
-        if (!int.TryParse(txtUnits.Text.Trim(), out units))
-        {
-            lblMessage.Text = "❌ Invalid units entered.";
-            lblMessage.ForeColor = System.Drawing.Color.Red;
-            return;
         }
 
-        // Step 2: Extract and parse bill amount safely
-        string rawText = lblBillAmount.Text;
-        string numericPart = Regex.Match(rawText, @"\d+[\d,]*\.?\d*").Value.Replace(",", "").Replace(" ", "");
-
-        decimal amount;
-        if (!decimal.TryParse(numericPart, NumberStyles.Number, CultureInfo.InvariantCulture, out amount))
+        private void ClearForm()
         {
-            lblMessage.Text = $"❌ Could not parse bill amount from: '{rawText}'";
-            lblMessage.ForeColor = System.Drawing.Color.Red;
-            return;
-        }
-
-            // Step 3: Insert into database
-            string connectionString = ConfigurationManager.ConnectionStrings["ElectricityBillDB"].ConnectionString;
-
-            try
-            {
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                string query = @"INSERT INTO ElectricityBill 
-                             (consumer_number, consumer_name, units_consumed, bill_amount) 
-                             VALUES (@ConsumerNo, @ConsumerName, @UnitsConsumed, @BillAmount)";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@ConsumerNo", consumerNo);
-                    cmd.Parameters.AddWithValue("@ConsumerName", consumerName);
-                    cmd.Parameters.AddWithValue("@UnitsConsumed", units);
-                    cmd.Parameters.AddWithValue("@BillAmount", amount);
-
-                    con.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        lblMessage.Text = "✅ Bill submitted successfully!";
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-                        btnSubmit.Enabled = false;
-                    }
-                    else
-                    {
-                        lblMessage.Text = "❌ Failed to submit bill.";
-                        lblMessage.ForeColor = System.Drawing.Color.Red;
-                    }
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            lblMessage.Text = $"❌ Error: {ex.Message}";
-            lblMessage.ForeColor = System.Drawing.Color.Red;
+            txtConsumerNo.Text = "";
+            txtConsumerName.Text = "";
+            txtUnits.Text = "";
+            lblBillAmount.Text = "";
+            lblSummary.Text = "";
+            btnSubmit.Enabled = true;
         }
     }
-
-
-
-}
 }
