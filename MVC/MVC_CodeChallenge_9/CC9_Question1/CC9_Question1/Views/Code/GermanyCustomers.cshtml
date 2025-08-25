@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CC9_Question1.Models.Customer>
+
+@{
+    ViewBag.Title = "GermanyCustomers";
+}
+
+<h2> Customers in Germany </h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Customer ID</th>
+        <th>Company Name</th>
+        <th>Contact Name</th>
+        <th>City</th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+<tr>
+    <td>@customer.CustomerID</td>
+    <td>@customer.CompanyName</td>
+    <td>@customer.ContactName</td>
+    <td>@customer.City</td>
+</tr>
+     }
+</table>

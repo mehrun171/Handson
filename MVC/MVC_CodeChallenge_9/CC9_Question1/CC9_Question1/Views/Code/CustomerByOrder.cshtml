@@ -1,0 +1,15 @@
+﻿@model CC9_Question1.Models.Customer
+
+@{
+    ViewBag.Title = "CustomerByOrder";
+}
+
+<h2>Customers By OrderID = 10248</h2>
+
+<table class="table table-bordered">
+    <tr><th>Customer ID</th><td>@Model.CustomerID</td></tr>
+    <tr><th>Company Name</th><td>@Model.CompanyName</td></tr>
+    <tr><th>Contact Name</th><td>@Model.ContactName</td></tr>
+    <tr><th>Country</th><td>@Model.Country</td></tr>
+    <tr><th>City</th><td>@Model.City</td></tr>
+</table>

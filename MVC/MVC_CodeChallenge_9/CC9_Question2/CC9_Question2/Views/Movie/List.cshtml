@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CC9_Question2.Models.Movie>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>All Movies</h2>
+<table>
+    <tr>
+        <th>Movie Name</th>
+        <th>Director</th>
+        <th>Release Date</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Moviename</td>
+            <td>@m.DirectorName</td>
+            <td>@m.DateofRelease.ToShortDateString()</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = m.Mid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = m.Mid })
+            </td>
+        </tr>
+    }
+</table>
