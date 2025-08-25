@@ -80,4 +80,3 @@ C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question1\CC9_Question1\ob
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question1\CC9_Question1\obj\Debug\CC9_Question1.csproj.CopyComplete
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question1\CC9_Question1\obj\Debug\CC9_Question1.dll
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question1\CC9_Question1\obj\Debug\CC9_Question1.pdb
-C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question1\CC9_Question1\obj\Debug\CC9_Question1.csproj.AssemblyReference.cache

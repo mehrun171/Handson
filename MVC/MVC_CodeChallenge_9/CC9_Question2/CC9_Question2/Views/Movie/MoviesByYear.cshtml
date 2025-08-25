@@ -5,24 +5,18 @@
 }
 
 <h2>MoviesByYear</h2>
-<table>
+<table class="table">
     <tr>
         <th>Movie Name</th>
         <th>Director</th>
-        <th>Release Date</th>
-        <th>Actions</th>
+        <th>Date of Release</th>
     </tr>
-    @foreach (var m in Model)
-    {
-        <tr>
-            <td>@m.Moviename</td>
-            <td>@m.DirectorName</td>
-            <td>@m.DateofRelease.ToShortDateString()</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = m.Mid }) |
-                @Html.ActionLink("Delete", "Delete", new { id = m.Mid })
-            </td>
-        </tr>
-    }
-</table>
 
+    @foreach (var movie in Model)
+    {
+<tr>
+    <td>@movie.MovieName</td>
+    <td>@movie.DirectorName</td>
+    <td>@movie.DateOfRelease.ToShortDateString()</td>
+</tr>}
+</table>

@@ -1,3 +1,4 @@
+C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\Newtonsoft.Json.xml
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\CC9_Question2.dll.config
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\CC9_Question2.dll
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\CC9_Question2.pdb
@@ -73,9 +74,10 @@ C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bi
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\System.Web.WebPages.xml
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\System.Web.WebPages.Deployment.xml
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\System.Web.WebPages.Razor.xml
-C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\Newtonsoft.Json.xml
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\Antlr3.Runtime.pdb
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\obj\Debug\CC9_Question2.Migrations.InitialCreate.resources
+C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\obj\Debug\CC9_Question2.csproj.GenerateResource.cache
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\obj\Debug\CC9_Question2.csproj.CoreCompileInputs.cache
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\obj\Debug\CC9_Question2.csproj.CopyComplete
 C:\mehr\Infinite_Hands_on\MVC\MVC_CodeChallenge_9\CC9_Question2\CC9_Question2\obj\Debug\CC9_Question2.dll

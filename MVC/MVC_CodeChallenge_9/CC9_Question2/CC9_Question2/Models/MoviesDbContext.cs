@@ -6,11 +6,9 @@ using System.Data.Entity;
 
 namespace CC9_Question2.Models
 {
-    public class MoviesDbContext : DbContext
+    public class MoviesDbContext:DbContext
     {
-        public MoviesDbContext() : base("name=connectstr") { }
-
+        public MoviesDbContext() : base("connectstr") { }
         public DbSet<Movie> Movies { get; set; }
     }
-    
 }

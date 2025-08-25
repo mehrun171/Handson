@@ -8,16 +8,14 @@ namespace CC9_Question2.Models
 {
     public class Movie
     {
-        [Key]
-        public int Mid { get; set; }
-
+        public int MovieId { get; set; }
         [Required]
-        public string Moviename { get; set; }
-
+        [StringLength(100)]
+        public string MovieName { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DateOfRelease { get; set; }
         [Required]
         public string DirectorName { get; set; }
-
-        [DataType(DataType.Date)]
-        public DateTime DateofRelease { get; set; }
     }
 }

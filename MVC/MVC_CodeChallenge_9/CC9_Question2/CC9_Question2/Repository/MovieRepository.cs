@@ -3,31 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace CC9_Question2.Repository
 {
-    public class MovieRepository
+    public class MovieRepository : IMovieRepository
     {
-        private MoviesDbContext db = new MoviesDbContext();
-
-        public IEnumerable<Movie> GetAll() => db.Movies.ToList();
-
-        public Movie GetById(int id) => db.Movies.Find(id);
-
+        MoviesDbContext db = new MoviesDbContext();
         public void Add(Movie movie)
         {
             db.Movies.Add(movie);
-        }
-
-        public void Update(Movie movie)
-        {
-            var mv = db.Movies.Find(movie.Mid);
-            if (mv != null)
-            {
-                mv.Moviename = movie.Moviename;
-                mv.DirectorName = movie.DirectorName;
-                mv.DateofRelease = movie.DateofRelease;
-            }
+            db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -36,13 +22,41 @@ namespace CC9_Question2.Repository
             if (movie != null)
             {
                 db.Movies.Remove(movie);
+                db.SaveChanges();
             }
         }
 
-        public IEnumerable<Movie> GetByYear(int year) =>
-            db.Movies.Where(m => m.DateofRelease.Year == year).ToList();
+        public IEnumerable<Movie> GetAll()
+        {
+            return db.Movies.ToList();
+        }
 
-        public IEnumerable<Movie> GetByDirector(string director) =>
-            db.Movies.Where(m => m.DirectorName == director).ToList();
+        public IEnumerable<Movie> GetByDirector(string directorName)
+        {
+            return db.Movies.Where(m => m.DirectorName == directorName).ToList();
+
+        }
+
+        public Movie GetById(int id)
+        {
+            return db.Movies.Find(id);
+        }
+
+        public IEnumerable<Movie> GetByYear(int year)
+        {
+            return db.Movies.Where(m => m.DateOfRelease.Year == year).ToList();
+        }
+
+        public void Update(Movie movie)
+        {
+            var mv = db.Movies.Find(movie.MovieId);
+            if (mv != null)
+            {
+                mv.MovieName = movie.MovieName;
+                mv.DirectorName = movie.DirectorName;
+                mv.DateOfRelease = movie.DateOfRelease;
+                db.SaveChanges();
+            }
+        }
     }
 }

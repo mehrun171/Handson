@@ -1,76 +1,190 @@
-﻿using CC9_Question2.Models;
-using CC9_Question2.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CC9_Question2.Models;
+using CC9_Question2.Repository;
 
 namespace CC9_Question2.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly MovieRepository repo = new MovieRepository();
+        private readonly IMovieRepository _repository;
 
-        public ActionResult Create() => View();
+        public MovieController()
+
+        {
+
+            _repository = new MovieRepository();
+
+        }
+
+        public ActionResult Index()
+
+        {
+
+            var movies = _repository.GetAll();
+
+            return View(movies);
+
+        }
+
+        public ActionResult Details(int id)
+
+        {
+
+            var movie = _repository.GetById(id);
+
+            return View(movie);
+
+        }
+
+        public ActionResult Create()
+
+        {
+
+            return View();
+
+        }
 
         [HttpPost]
+
         public ActionResult Create(Movie movie)
+
         {
+
             if (ModelState.IsValid)
+
             {
-                repo.Add(movie);
-                return RedirectToAction("List");
+
+                _repository.Add(movie);
+
+                return RedirectToAction("Index");
+
             }
+
             return View(movie);
+
         }
 
         public ActionResult Edit(int id)
+
         {
-            var movie = repo.GetById(id);
+
+            var movie = _repository.GetById(id);
+
             return View(movie);
+
         }
-        
+
         [HttpPost]
+
         public ActionResult Edit(Movie movie)
+
         {
+
             if (ModelState.IsValid)
+
             {
-                repo.Update(movie);
-                return RedirectToAction("List");
+
+                _repository.Update(movie);
+
+                return RedirectToAction("Index");
+
             }
+
             return View(movie);
+
         }
+
+
+        [HttpGet]
 
         public ActionResult Delete(int id)
+
         {
-            var movie = repo.GetById(id);
+
+            var movie = _repository.GetById(id);
+
             return View(movie);
+
         }
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult ConfirmDelete(int id)
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Delete(Movie movie)
+
         {
-            repo.Delete(id);
-            return RedirectToAction("List");
+
+            _repository.Delete(movie.MovieId);
+
+            return RedirectToAction("Index");
+
         }
 
-        public ActionResult List()
+        public ActionResult SearchByYear()
+
         {
-            var movies = repo.GetAll();
-            return View(movies);
+
+            return View();
+
+        }
+
+        [HttpPost]
+
+        public ActionResult SearchByYear(int year)
+
+        {
+
+            return RedirectToAction("MoviesByYear", new { year });
+
         }
 
         public ActionResult MoviesByYear(int year)
+
         {
-            var movies = repo.GetByYear(year);
+
+            var movies = _repository.GetByYear(year);
+
+            ViewBag.Year = year;
+
             return View(movies);
+
         }
 
-        public ActionResult MoviesByDirector(string director)
+        public ActionResult SearchByDirector()
+
         {
-            var movies = repo.GetByDirector(director);
-            return View(movies);
+
+            return View();
+
         }
+
+        [HttpPost]
+
+        public ActionResult SearchByDirector(string directorName)
+
+        {
+
+            return RedirectToAction("MoviesByDirector", new { directorName });
+
+        }
+
+        public ActionResult MoviesByDirector(string directorName)
+
+        {
+
+            var movies = _repository.GetByDirector(directorName);
+
+            ViewBag.Director = directorName;
+
+            return View(movies);
+
+        }
+
     }
+
 }
